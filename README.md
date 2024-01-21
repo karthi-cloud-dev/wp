@@ -321,5 +321,9 @@ service httpd restart
 ![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/063ef86c-68ec-430d-b7b6-518b6d199472)
 ![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/37254c3d-4baa-41ad-8e38-abe4bfdf515d)
 ![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/0d796395-0b1d-4d7b-a783-31f06926f751)
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/8b0d0070-5a42-4aad-ad01-4f7e799d1252)
+
+Back to ALB
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/58e003a5-c22d-4037-8e89-d6c53dbf6220)
 
 
