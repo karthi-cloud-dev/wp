@@ -325,5 +325,16 @@ service httpd restart
 
 Back to ALB
 ![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/58e003a5-c22d-4037-8e89-d6c53dbf6220)
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/a91f6908-3e0b-464b-901f-c4490ee7c32c)
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/e2b04260-48aa-4437-95f1-29f9b97682ce)
+
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/34d7ac54-fd98-4ba9-a084-50bcc6674b1d)
+>[!info]
+>Final WordPress Site
+
+
+
+
+
 
 
