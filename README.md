@@ -267,3 +267,59 @@ service httpd restart
 >[!important]
 >The mount command mentioned in the 1st block of code is unique and shall change for different account which needs to be updated. Commands are here -  [[Hosting-Wordpress-AWS/README|README|#Mounting EFS]
 
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/2eed6381-a18b-414a-8e35-f32a236e6aae)
+
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/f6e8584a-1cae-4ca2-b41b-fe9c7afc0d42)
+
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/8782c53b-58ec-4f39-aa84-455d97e92944)
+
+### CREATE APPLICATION LOAD BALANCER
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/1c45ab30-c812-4490-b98a-2c9e9efdc058)
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/12885ab5-68ab-4569-b3d0-06a681013a58)
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/e1793cfe-1150-414f-bffc-cef0d6842770)
+
+```BASH
+#!/bin/bash
+
+yum update -y
+sudo yum install -y httpd httpd-tools mod_ssl
+sudo systemctl enable httpd 
+sudo systemctl start httpd
+sudo amazon-linux-extras enable php7.4
+sudo yum clean metadata
+sudo yum install php php-common php-pear -y
+sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip} -y
+sudo rpm -Uvh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+sudo yum install mysql-community-server -y
+sudo systemctl enable mysqld
+sudo systemctl start mysqld
+echo "fs-06f48bf1a1e650a19.efs.us-east-1.amazonaws.com:/ /var/www/html nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 0 0" >> /etc/fstab
+mount -a
+service httpd restart
+```
+>[!IMPORTANT]
+>Change the EFC commands in the above block of code.
+>This is the meta data that needs to be given during the EC2 creation.
+>
+>
+
+>[!Note]
+>Similarly create ALB-02 EC2 instance
+
+#### ALB Configuration
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/1db1977d-0c36-4c4a-80a0-ba9858e7dbe6)
+>[!Note]
+>Select Application load balancer
+
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/e23787b4-7805-40b1-9de4-ef5c8e73d424)
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/bdeedcaf-77c9-4974-b2b6-f987992541f8)
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/29cc78c6-8316-4461-b866-2b1b309f826d)
+>[!important]
+>Provide the target group
+
+#### Target Group
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/063ef86c-68ec-430d-b7b6-518b6d199472)
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/37254c3d-4baa-41ad-8e38-abe4bfdf515d)
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/0d796395-0b1d-4d7b-a783-31f06926f751)
+
+
