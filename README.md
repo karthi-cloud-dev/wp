@@ -165,10 +165,12 @@ After creating the internet gateway, attach it to the VPC that was created. Sele
 #### Create an EC2 instance of the database
 ![image](https://github.com/karthi770/EC2-tagging-Boto3/assets/102706119/75174581-b8ed-4aa5-ac7c-9d976560d3fe)
 ![image](https://github.com/karthi770/EC2-tagging-Boto3/assets/102706119/966175b3-ea47-4986-9ef1-8cb97d399404)
-![image](https://github.com/karthi770/EC2-tagging-Boto3/assets/102706119/b48bc1f8-ff6c-4367-b8f6-a88db945ba84)
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/3744a6d3-b003-4d99-9030-5dbf030ccd70)
 >[!note]
->Create a new EC2 instance and select the appropriate VPC and private subnet. 
->Create a keypair so that we can ssh with the instance.
+>- Create a new EC2 instance and select the appropriate VPC and private subnet. 
+>- Create a keypair so that we can ssh with the instance.
+>- Make sure to enable the public IP address assignment.
+>- Make the instance AZ and the public subnet AZ are the same to avoid cross-platform charges.
 
 ![image](https://github.com/karthi770/EC2-tagging-Boto3/assets/102706119/452dca95-b668-4b0e-b885-a53960e39639)
 ![image](https://github.com/karthi770/EC2-tagging-Boto3/assets/102706119/eafb1016-cf82-4d04-9720-499a8f17c838)
@@ -184,4 +186,20 @@ After creating the internet gateway, attach it to the VPC that was created. Sele
 >[!important]
 >Before we get into the mounting part, we need to make sure that the DNS hostnames is enabled in the VPC.
 
+###  <U>WORDPRESS INSTALLATION AND EFS FILES MIGRATION</u>
+
+#### Creating Security group for SSH
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/589ac122-07a1-48a4-8ed8-d7217587cfc7)
+
+#### Editing the EFS Security Group
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/c8fabd78-b719-402b-ab82-57ec1c90a18f)
+
+#### Editing the App Server Security Group
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/b1834c9f-aa97-47e1-b98f-b54f0829eada)
+
+#### Creating an EC2 instance for the WP server
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/1311c1ce-9c85-4e96-8b2d-035ea13db524)
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/31781816-493f-4959-b04b-0a0b5591a264)
+>[!important]
+>Make sure to select the Security group mentioned in the image while creating the EC2 instance.
 
