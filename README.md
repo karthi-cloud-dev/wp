@@ -148,6 +148,8 @@ After creating the internet gateway, attach it to the VPC that was created. Sele
 ![image](https://github.com/karthi770/EC2-tagging-Boto3/assets/102706119/b5a13a8b-5874-4680-ba83-e2ded78acacb)
 ![image](https://github.com/karthi770/EC2-tagging-Boto3/assets/102706119/2166506a-638f-41eb-a914-aeae09a1e2a3)
 ![image](https://github.com/karthi770/EC2-tagging-Boto3/assets/102706119/60ba2aae-7fe2-483f-b449-45f39c33aad4)
+>[!important]
+>Make sure to give a DB name and remember the password given to it.
 
 ### <u>CREATING ELASTIC FILE SYSTEM</u>
 
@@ -202,4 +204,66 @@ After creating the internet gateway, attach it to the VPC that was created. Sele
 ![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/31781816-493f-4959-b04b-0a0b5591a264)
 >[!important]
 >Make sure to select the Security group mentioned in the image while creating the EC2 instance.
+
+#### WP installation
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/2fd85b2e-6021-48ab-8a44-7eb85e342bfc)
+>[!Note]
+>SSH into the EC2 instance
+
+```bash
+1.
+# create the html directory and mount the efs to it
+sudo su
+yum update -y
+mkdir -p /var/www/html
+sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-06f48bf1a1e650a19.efs.us-east-1.amazonaws.com:/ /var/www/html
+
+2.
+# install apache 
+sudo yum install -y httpd httpd-tools mod_ssl
+sudo systemctl enable httpd 
+sudo systemctl start httpd
+
+3.
+# install php 7.4
+	sudo amazon-linux-extras enable php7.4
+	sudo yum clean metadata
+	sudo yum install php php-common php-pear -y
+	sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip} -y
+
+4.
+# install mysql5.7
+sudo rpm -Uvh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+sudo yum install mysql-community-server -y
+sudo systemctl enable mysqld
+sudo systemctl start mysqld
+
+5.
+# set permissions
+sudo usermod -a -G apache ec2-user
+sudo chown -R ec2-user:apache /var/www
+sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
+sudo find /var/www -type f -exec sudo chmod 0664 {} \;
+chown apache:apache -R /var/www/html 
+
+6.
+# download wordpress files
+wget https://wordpress.org/latest.tar.gz
+tar -xzf latest.tar.gz
+cp -r wordpress/* /var/www/html/
+
+7.
+# create the wp-config.php file
+cp /var/www/html/wp-config-sample.php /var/www/html/wp-config.php
+
+8.
+# edit the wp-config.php file
+nano /var/www/html/wp-config.php
+
+9
+# restart the webserver
+service httpd restart
+```
+>[!important]
+>The mount command mentioned in the 1st block of code is unique and shall change for different account which needs to be updated. Commands are here -  [[Hosting-Wordpress-AWS/README|README|#Mounting EFS]
 
