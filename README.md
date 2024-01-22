@@ -131,6 +131,7 @@ After creating the internet gateway, attach it to the VPC that was created. Sele
 ![image](https://github.com/karthi770/EC2-tagging-Boto3/assets/102706119/222818a7-4381-4470-9a96-47c45f94e702)
 >[!info]
 >One point to be noted in EFS is, there is another inbound rule added after creating the EFS SG. The below image will show it. We have to add EFS SG as inbound rule along with App server SG.
+
 ![image](https://github.com/karthi770/EC2-tagging-Boto3/assets/102706119/e3c48011-9521-4c8b-9910-acc23076d736)
 
 ### <u>CREATING MYSQL DATABASE</u>
