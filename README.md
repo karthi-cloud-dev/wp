@@ -380,6 +380,7 @@ Back to ALB
 
 >[!note]
 >Click on Putty and select Auth. Check the "Allow agent forwarding"
+>Agent forwarding is used to forward the key from one instance to another.
 
 ![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/d28a6737-1141-4d5b-9353-4620dd13add0)
 
