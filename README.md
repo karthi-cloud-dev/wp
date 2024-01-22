@@ -340,11 +340,68 @@ Back to ALB
 ![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/e2b04260-48aa-4437-95f1-29f9b97682ce)
 
 ![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/34d7ac54-fd98-4ba9-a084-50bcc6674b1d)
+
 >[!info]
 >Final WordPress Site
 
+## <u>BASTION HOST OR JUMPBOX</U>
 
+### Download the Putty files:
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/8ef9c9a8-6411-45f1-9b92-704ed3b6c77f)
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/fe98c568-0104-4819-8f67-046cd7677d6a)
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/490c03d3-511e-46ee-aebb-c126d2a36f5d)
 
+### Launch an EC2 server
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/87d917f8-01e3-432f-a49b-612e0462a779)
+
+>[!note]
+>Make sure the EC2 instance is in the public subnet.
+
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/a5f53563-5297-4d17-8a15-a714c6918eb0)
+
+>[!note]
+>In the security group the IP address needs to be limited to the user's IP but the sake of practice the IP shall be from anywhere.
+
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/04d25e67-823e-4b53-a97b-a4545d429fdb)
+
+>[!note]
+>Click on "Load" and the key pair that was created during the EC2 creation.
+>We can add a passphrase for extra security.
+>Click on "Save Private key"
+
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/0ab7fe73-d489-4c78-b324-75078b92eff6)
+
+>[!note]
+>Once you click on the "Add Key" option you will be prompted to enter the passphrase and the key will be added as shown below.
+
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/23bb051d-b64b-4cca-807f-62a839229141)
+
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/4bc5c4f6-2ddc-4a46-acd4-e127a2c031c8)
+
+>[!note]
+>Click on Putty and select Auth. Check the "Allow agent forwarding"
+
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/d28a6737-1141-4d5b-9353-4620dd13add0)
+
+>[!note]
+>Use the public IP of the Bastion server.
+
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/8e7797cf-f528-48d4-8949-e3152a1cd253)
+
+>[!note]
+>Enter the hostname as specified above but make sure to edit the IP address.
+
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/5624db5c-6947-4a7f-a30e-15e7ed5d2750)
+
+>[!note]
+>It is now connected to the bastion host. 
+>Now enter the private ip of the private subnet to access the EC2 instance.
+
+![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/011f66e4-919c-43c4-bebf-f43b26d71e51)
+
+```bash
+ssh ec2-user@10.0.2.172
+```
 
 
 
