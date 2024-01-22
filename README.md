@@ -183,6 +183,10 @@ After creating the internet gateway, attach it to the VPC that was created. Sele
 >[!note]
 >Get into the EFS that we created and click on "Attach". We shall get these commands. 
 >Now we have to ssh in to the db instance and run these commands.
+>Don't run the commands yet, these are only for references.
+
+^MountingtheEFS
+
 
 ![image](https://github.com/karthi770/EC2-tagging-Boto3/assets/102706119/98c67de2-82d2-4ae9-a9c9-381f64195f70)
 >[!important]
@@ -234,6 +238,12 @@ sudo systemctl start httpd
 4.
 # install mysql5.7
 sudo rpm -Uvh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+sudo nano /etc/yum.repos.d/mysql-community.repo
+
+# when you are inside the mysql-community.repo add replace the key shown below:
+gpgkey=https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+
 sudo yum install mysql-community-server -y
 sudo systemctl enable mysqld
 sudo systemctl start mysqld
@@ -265,7 +275,7 @@ nano /var/www/html/wp-config.php
 service httpd restart
 ```
 >[!important]
->The mount command mentioned in the 1st block of code is unique and shall change for different account which needs to be updated. Commands are here -  [[Hosting-Wordpress-AWS/README|README|#Mounting EFS]
+>The mount command mentioned in the 1st block of code is unique and shall change for different account which needs to be updated. Commands are here -  [[Hosting-Wordpress-AWS/README#^MountingtheEFS|Mount]] ]
 
 ![image](https://github.com/karthi770/Hosting-Wordpress-AWS/assets/102706119/2eed6381-a18b-414a-8e35-f32a236e6aae)
 
