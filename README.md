@@ -309,7 +309,7 @@ mount -a
 service httpd restart
 ```
 >[!IMPORTANT]
->Change the EFC commands in the above block of code.
+>Change the EFS commands in the above block of code.
 >This is the meta data that needs to be given during the EC2 creation.
 >
 >
@@ -403,7 +403,4 @@ Back to ALB
 ```bash
 ssh ec2-user@10.0.2.172
 ```
-
-
-
 
